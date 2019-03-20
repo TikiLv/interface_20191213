@@ -12,10 +12,10 @@
         <action>login</action>
     </url>
 
-    <url name="registerQuick">
-        <group>User</group>
-        <module>Member</module>
-        <action>registerQuick</action>
+    <url name="testAddGroupManager">
+        <group>api</group>
+        <module>group</module>
+        <action>saveOrUpdate</action>
     </url>
 
     <url name="generate">

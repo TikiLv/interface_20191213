@@ -6,7 +6,6 @@ from common1 import common
 from common1 import configHttp as ConfigHttp
 
 login_xls = common.get_xls("userCase.xlsx", "login")
-print(login_xls)
 localReadConfig = readConfig.ReadConfig()
 configHttp = ConfigHttp.ConfigHttp()
 info = {}
@@ -75,7 +74,7 @@ class Login(unittest.TestCase):
         # configHttp.set_headers(header)
         # print("第二步：设置header(token等)")
 
-        # set params
+        # set data
         data = {"account": self.account, "password": self.password}
         configHttp.set_data(data)
         print("第三步：设置发送请求的参数")
@@ -125,7 +124,7 @@ class Login(unittest.TestCase):
             self.assertEqual(self.info['msg'], self.msg)
 
         elif self.result == '2':
-            self.log.build_case_line(self.case_name, self.result,'the result doesn\'t exist')
+            self.log.build_case_line(self.case_name, self.result,'the code doesn\'t exist')
 
 if __name__ ==  "__main__":
     Login(unittest.TestCase)
