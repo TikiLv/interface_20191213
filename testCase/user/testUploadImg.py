@@ -7,7 +7,7 @@ from common1 import configHttp
 from common1 import businessCommon
 from common1.Log import MyLog
 
-localUploadImg_xls = common.get_xls("userCase.xlsx", "uploadImg")
+localUploadImg_xls = common.get_xls("userCase.xls", "uploadImg")
 localReadConfig = readConfig.ReadConfig()
 localConfigHttp = configHttp.ConfigHttp()
 

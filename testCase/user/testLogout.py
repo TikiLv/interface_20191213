@@ -8,7 +8,7 @@ from common1 import businessCommon
 
 localReadConfig = ReadConfig.ReadConfig()
 localConfigHttp = configHttp.ConfigHttp()
-localLogout_xls = common.get_xls("userCase.xlsx", "logout")
+localLogout_xls = common.get_xls("userCase.xls", "logout")
 
 
 @paramunittest.parametrized(*localLogout_xls)

@@ -5,7 +5,7 @@ from common1.Log import MyLog
 from common1 import common
 from common1 import configHttp
 
-localGenerate_xls = common.get_xls("userCase.xlsx", "generate")
+localGenerate_xls = common.get_xls("userCase.xls", "generate")
 localConfigHttp = configHttp.ConfigHttp()
 localReadConfig = readConfig.ReadConfig()
 

@@ -6,7 +6,7 @@ from common1 import configHttp
 from common1 import common
 from common1 import configDB
 
-localRegisterQuick_xls = common.get_xls("userCase.xlsx", "registerquick")
+localRegisterQuick_xls = common.get_xls("userCase.xls", "registerquick")
 localReadConfig = readConfig.ReadConfig()
 localConfigHttp = configHttp.ConfigHttp()
 localConfigDB = configDB.MyDB()

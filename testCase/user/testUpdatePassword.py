@@ -8,7 +8,7 @@ from common1.Log import MyLog
 
 localReadConfig = readConfig.ReadConfig()
 localConfigHttp = configHttp.ConfigHttp()
-localUpdatePassword_xls = common.get_xls("userCase.xlsx", "updatePassword")
+localUpdatePassword_xls = common.get_xls("userCase.xls", "updatePassword")
 
 
 @paramunittest.parametrized(*localUpdatePassword_xls)

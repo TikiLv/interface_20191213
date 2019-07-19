@@ -1,6 +1,0 @@
-2019-03-18 16:38:11,595 - root - INFO - login - Code:0 - msg:操作成功
-2019-03-18 16:38:17,063 - root - INFO - login_AccountError - Code:1 - msg:用户不存在
-2019-03-18 16:38:18,130 - root - INFO - login_PasswirdError - Code:1 - msg:账号密码错误
-2019-03-18 16:44:43,748 - root - INFO - login_AccountNull - Code:3 - msg:[账号不能为空]
-2019-03-18 16:44:43,777 - root - INFO - login_PasswordNull - Code:2 - msg:the result doesn't exist
-2019-03-18 16:44:43,777 - root - INFO - login_PasswordNull - Code:3 - msg:[密码不能为空]

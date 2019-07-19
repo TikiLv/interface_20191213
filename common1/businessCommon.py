@@ -5,8 +5,8 @@ import requests
 
 localReadConfig = readConfig.ReadConfig()
 localConfigHttp = configHttp.ConfigHttp()
-localLogin_xls = common.get_xls("userCase.xlsx", "login")
-localAddAddress_xls = common.get_xls("userCase.xlsx", "addAddress")
+localLogin_xls = common.get_xls("userCase.xls", "login")
+localAddAddress_xls = common.get_xls("userCase.xls", "addAddress")
 
 # login
 def login():
@@ -30,11 +30,16 @@ def login():
             "password": localLogin_xls[0][4]}
     localConfigHttp.set_data(data)
 
-    # login,构造session并存在session中存储cookie
+    # login,构造session并将session存储到config.ini文件中
     session = requests.Session()
     response = session.post(url, data)
-    print(session.cookies.get_dict())
-    return session
+    # print(session.cookies)
+    sessionId =  session.cookies.get_dict()['JSESSIONID']
+    # print(sessionId)
+    cookie = 'JSESSIONID=' + sessionId
+    # print(cookie)
+    localReadConfig.set_headers("cookie", cookie)
+    return cookie
 
 
     # response = localConfigHttp.post().json()

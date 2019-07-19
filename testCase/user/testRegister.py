@@ -6,7 +6,7 @@ import unittest
 import paramunittest
 from common1 import configDB
 
-register_xls = common.get_xls("userCase.xlsx", "register")
+register_xls = common.get_xls("userCase.xls", "register")
 localConfigHttp = configHttp.ConfigHttp()
 localReadConfig = readConfig.ReadConfig()
 localConfigDB = configDB.MyDB()

@@ -1,5 +1,6 @@
-user/testLogin
-#user/testRegister
+#user/testLogin
+groupmanager/testAddGroupManager
+#groupmanager/testDeleteGroupManager
 #user/testRegisterQuick
 #user/testGenerate
 #user/testLoginFB

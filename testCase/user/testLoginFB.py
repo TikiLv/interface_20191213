@@ -7,7 +7,7 @@ from common1 import configHttp
 
 localReadConfig = readConfig.ReadConfig()
 localConfigHttp = configHttp.ConfigHttp()
-localLoginFB_xls = common.get_xls("userCase.xlsx", "loginFB")
+localLoginFB_xls = common.get_xls("userCase.xls", "loginFB")
 
 
 @paramunittest.parametrized(*localLoginFB_xls)

@@ -6,7 +6,7 @@ from common1 import common
 from common1 import configHttp as ConfigHttp
 from common1 import businessCommon
 
-addAddress_xls = common.get_xls("userCase.xlsx", "addAddress")
+addAddress_xls = common.get_xls("userCase.xls", "addAddress")
 localReadConfig = readConfig.ReadConfig()
 configHttp = ConfigHttp.ConfigHttp()
 

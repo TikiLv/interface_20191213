@@ -8,8 +8,8 @@ from common1 import businessCommon
 
 localReadConfig = readConfig.ReadConfig()
 localConfigHttp = configHttp.ConfigHttp()
-localLogin_xls = common.get_xls("userCase.xlsx", "login")
-localAccountSetting_xls = common.get_xls("userCase.xlsx", "accountSetting")
+localLogin_xls = common.get_xls("userCase.xls", "login")
+localAccountSetting_xls = common.get_xls("userCase.xls", "accountSetting")
 
 
 @paramunittest.parametrized(*localAccountSetting_xls)

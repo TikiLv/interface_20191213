@@ -9,11 +9,12 @@ localReadConfig = readConfig.ReadConfig()
 class ConfigHttp:
 
     def __init__(self):
-        global scheme, host, port, timeout
+        global scheme, host, port, timeout,sessionid
         scheme = localReadConfig.get_http("scheme")
         host = localReadConfig.get_http("baseurl")
         port = localReadConfig.get_http("port")
         timeout = localReadConfig.get_http("timeout")
+        sessionid = localReadConfig.get_headers("cookie")
         self.log = Log.get_log()
         self.logger = self.log.get_logger()
         self.headers = {}
@@ -83,6 +84,32 @@ class ConfigHttp:
         except TimeoutError:
             self.logger.error("Time out!")
             return None
+
+    # def postSetSession(self):
+    #     """
+    #     set session
+    #     :return:
+    #     """
+    #     try:
+    #         response = requests.post(self.url, headers=self.headers, params=self.params, data=self.data,timeout=float(timeout))
+    #         # get session
+    #         print(response)
+    #         returnResponse = response.json()
+    #         if returnResponse['code'] == 0:
+    #             #header的type类型是CaseInsensitiveDict,无法直接调用，需要dict()方法
+    #             s = dict(response.headers)
+    #             sessionId = s['Set-Cookie']
+    #             newSessionId = sessionId[11:43]
+    #             print(newSessionId)
+    #             #set user session to config file
+    #             localReadConfig.set_headers("sessionid", newSessionId)
+    #             print(response)
+    #         else:
+    #             pass
+    #         return response
+    #     except TimeoutError:
+    #         self.logger.error("Time out!")
+    #         return None
 
     # defined http post method
     # include get params and post data

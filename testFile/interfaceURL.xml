@@ -18,22 +18,22 @@
         <action>saveOrUpdate</action>
     </url>
 
-    <url name="generate">
-        <group>User</group>
-        <module>Token</module>
-        <action>generate</action>
+    <url name="testDeleteGroupManager">
+        <group>api</group>
+        <module>group</module>
+        <action>groupDelete</action>
     </url>
 
-    <url name="loginFb">
-        <group>User</group>
-        <module>Member</module>
-        <action>loginFb</action>
+    <url name="testGetGroupManager">
+        <group>api</group>
+        <module>group</module>
+        <action>groupManager</action>
     </url>
 
-    <url name="logout">
-        <group>User</group>
-        <module>Member</module>
-        <action>logout</action>
+    <url name="testAddStudent">
+        <group>api</group>
+        <module>school</module>
+        <action>createStudent</action>
     </url>
 
     <url name="accountSetting">

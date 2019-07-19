@@ -5,7 +5,7 @@ from common1 import Log as Log
 from common1 import common
 from common1 import configHttp as ConfigHttp
 
-login_xls = common.get_xls("userCase.xlsx", "login")
+login_xls = common.get_xls("userCase.xls", "login")
 localReadConfig = readConfig.ReadConfig()
 configHttp = ConfigHttp.ConfigHttp()
 info = {}
@@ -84,6 +84,7 @@ class Login(unittest.TestCase):
         method = str(self.return_json.request)[int(str(self.return_json.request).find('['))+1:int(str(self.return_json.request).find(']'))]
         print("第四步：发送请求\n\t\t请求方法："+method)
 
+
         # check result
         self.checkResult()
         print("第五步：检查结果")
@@ -95,10 +96,10 @@ class Login(unittest.TestCase):
         """
         # info = self.info
         # if info['code'] == 0:
-        #     # get uer token
-        #     token_u = common.get_value_from_return_json(info, 'member', 'token')
-        #     # set user token to config file
-        #     localReadConfig.set_headers("TOKEN_U", token_u)
+        #     # get session
+        #     sessionId = configHttp.post()
+        #     # set user session to config file
+        #     localReadConfig.set_headers("sessionid", sessionId)
         # else:
         #     pass
         self.log.build_case_line(self.case_name, self.info['code'], self.info['msg'])
@@ -118,6 +119,7 @@ class Login(unittest.TestCase):
             # data = common.get_value_from_return_json(self.info, 'code', 'msg')
             self.assertEqual(self.info['code'], self.code)
             self.assertEqual(self.info['msg'], self.msg)
+
 
         elif self.result == '1':
             self.assertEqual(self.info['code'], self.code)

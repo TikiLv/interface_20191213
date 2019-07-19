@@ -4,6 +4,7 @@ from common1.Log import MyLog as Log
 import readConfig as readConfig
 from common1 import HTMLTestRunner
 from common1.configEmail import MyEmail
+from BeautifulReport import BeautifulReport
 
 localReadConfig = readConfig.ReadConfig()
 
@@ -67,16 +68,18 @@ class AllTest:
             suit = self.set_case_suite()
             if suit is not None:
                 logger.info("********TEST START********")
-                fp = open(resultPath, 'wb')
-                runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title='Test Report', description='Test Description')
-                runner.run(suit)
+                # fp = open(resultPath, 'wb')
+                # runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title='Test Report', description='Test Description')
+                # runner.run(suit)
+                result = BeautifulReport(suit)
+                result.report(filename='测试报告', description='测试deafult报告', log_path= resultPath)
             else:
                 logger.info("Have no case to test.")
         except Exception as ex:
             logger.error(str(ex))
         finally:
             logger.info("*********TEST END*********")
-            fp.close()
+            # fp.close()
             # send test report by email
             if on_off == 'on':
                 self.email.send_email()

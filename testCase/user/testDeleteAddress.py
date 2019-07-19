@@ -5,7 +5,7 @@ from common1 import Log as Log
 from common1 import common
 from common1 import configHttp as ConfigHttp
 
-deleteAddress_xls = common.get_xls("userCase.xlsx", "deleteAddress")
+deleteAddress_xls = common.get_xls("userCase.xls", "deleteAddress")
 localReadConfig = readConfig.ReadConfig()
 configHttp = ConfigHttp.ConfigHttp()
 

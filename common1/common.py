@@ -1,6 +1,9 @@
 import requests
 import readConfig as readConfig
 import os
+from xlutils.copy import copy
+import xlwt
+import xlrd
 from xlrd import open_workbook
 from xml.etree import ElementTree as ElementTree
 from common1 import configHttp
@@ -46,8 +49,9 @@ def get_value_from_return_json(json, name1, name2):
     :param name2:
     :return:
     """
-    group = json[name1]
-    value = json[name2]
+    info = json['info']
+    group = info[name1]
+    value = info[name2]
     return group,value
 
 
@@ -83,6 +87,50 @@ def get_xls(xls_name, sheet_name):
         if sheet.row_values(i)[0] != u'case_name':
             cls.append(sheet.row_values(i))
     return cls
+
+# ****************************** 设置样式 ********************************
+def set_style(name,height,bold=False):
+    style = xlwt.XFStyle()  # 初始化样式
+
+    font = xlwt.Font()  # 为样式创建字体
+    font.name = name # 'Times New Roman'
+    font.bold = bold
+    font.color_index = 4
+    font.height = height
+
+    # borders= xlwt.Borders()
+    # borders.left= 6
+    # borders.right= 6
+    # borders.top= 6
+    # borders.bottom= 6
+
+    style.font = font
+    # style.borders = borders
+
+    return style
+
+# ****************************** write testCase excel ********************************
+# def write_xls(xls_name, sheet_name, row, column):
+#     """
+#
+#     :param xls_name:
+#     :param sheet_name:
+#     :param row:
+#     :param column:
+#     :return:
+#     """
+#     #create workbook
+#     f = xlwt.Workbook()
+#     xlsPath = os.path.join(proDir, "testFile", "case",xls_name)
+#     old_file = xlrd.open_workbook(xlsPath)
+#     new_file = copy(old_file)
+#     file = xlrd.open_workbook(new_file)
+#     sheet = file.sheet_by_name(sheet_name)
+#     nrows = sheet.nrows
+#     for i in range(nrows):
+#         if nrows == 'id':
+#             xlwt.Workbook()
+
 
 # ****************************** read SQL xml ********************************
 database = {}
@@ -157,4 +205,4 @@ def get_url_from_xml(name):
     return url
 
 if __name__ == "__main__":
-    print(get_xls("userCase.xlsx","login"))
+    print(get_xls("userCase.xls","addGroupManager"))

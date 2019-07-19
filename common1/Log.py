@@ -64,7 +64,8 @@ class Log:
         get report file path
         :return:
         """
-        report_path = os.path.join(logPath, "report.html")
+        # report_path = os.path.join(logPath, "report.html")
+        report_path = os.path.join(logPath)
         return report_path
 
     def get_result_path(self):
