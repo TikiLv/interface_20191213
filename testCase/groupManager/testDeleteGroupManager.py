@@ -1,4 +1,4 @@
-import unittest
+import unittest 
 import paramunittest
 import readConfig as readConfig
 from common1 import Log as Log
@@ -6,12 +6,12 @@ from common1 import common
 from common1 import configHttp as ConfigHttp
 from common1 import businessCommon
 
-addGroupManager = common.get_xls("userCase.xls", "deleteGroupManager")
+deleteGroupManager = common.get_xls("userCase.xls", "deleteGroupManager")
 localReadConfig = readConfig.ReadConfig()
 configHttp = ConfigHttp.ConfigHttp()
 
 
-@paramunittest.parametrized(*addGroupManager)
+@paramunittest.parametrized(*deleteGroupManager)
 class DeleteGroupManager(unittest.TestCase):
     def setParameters(self, case_name, method, code, msg):
         """
@@ -42,7 +42,7 @@ class DeleteGroupManager(unittest.TestCase):
                 """
         self.log = Log.MyLog.get_log()
         self.logger = self.log.get_logger()
-        self.cookie = businessCommon.login()
+        self.cookie = localReadConfig.get_headers('cookie')
         # print(self.cookie)
 
     def GetGroupManagerId(self):
@@ -61,18 +61,18 @@ class DeleteGroupManager(unittest.TestCase):
 
         # test interface
         self.return_json = configHttp.post()
-        self.info = self.return_json.json()
+        #判断登录超时
+        if self.return_json.json() == 4:
+            businessCommon.login()
+            self.return_json = configHttp.post()
+        # self.info = self.return_json.json()
         self.message = self.return_json.json()
         try:
-            self.newid = self.message['data']['list'][0]['id']
+            self.newid = self.message['data']['list'][-1]['id']
             return self.newid
         except IndexError:
             self.log.build_case_line(self.case_name, self.code,'用户组不存在')
         # print(self.newid)
-
-        # validation
-        # common.show_return_msg(self.return_json)
-
 
 
     def testDeleteGroupManager(self):
@@ -80,6 +80,7 @@ class DeleteGroupManager(unittest.TestCase):
         删除用户组
         :return:
         """
+        #获取newid
         self.GetGroupManagerId()
 
         # set url
@@ -138,7 +139,4 @@ class DeleteGroupManager(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    # suit = unittest.TestSuite()
-    # suit.addTest(DeleteGroupManager("test_01_GetGroupManagerId"))
-    # suit.addTest(DeleteGroupManager("test_2_DeleteGroupManager"))
     DeleteGroupManager(unittest.TestCase)

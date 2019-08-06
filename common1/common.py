@@ -25,7 +25,7 @@ def get_visitor_token():
     :return:
     """
     host = localReadConfig.get_http("BASEURL")
-    response = requests.get(host+"/v2/User/Token/generate")
+    response = requests.get(host+"/v2/user/Token/generate")
     info = response.json()
     token = info.get("info")
     logger.debug("Create token:%s" % (token))

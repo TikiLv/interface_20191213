@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <interface>
-    <url name="register">
-        <group>User</group>
-        <module>Member</module>
-        <action>registerCommon</action>
-    </url>
-
     <url name="login">
         <group>school</group>
         <module>user</module>
@@ -30,57 +24,35 @@
         <action>groupManager</action>
     </url>
 
+    <url name="testGetAllGroup">
+        <group>api</group>
+        <module>account</module>
+        <action>getAllGroup</action>
+    </url>
+
+    <url name="testAddUser">
+        <group>api</group>
+        <module>account</module>
+        <action>saveOrUpdate</action>
+    </url>
+
+    <url name="getAccountManager">
+        <group>api</group>
+        <module>account</module>
+        <action>accountManager</action>
+    </url>
+
+    <url name="testDeleteUser">
+        <group>api</group>
+        <module>account</module>
+        <action>delete</action>
+    </url>
+
+
     <url name="testAddStudent">
         <group>api</group>
         <module>school</module>
         <action>createStudent</action>
     </url>
 
-    <url name="accountSetting">
-        <group>User</group>
-        <module>Member</module>
-        <action>accountSetting</action>
-    </url>
-
-    <url name="updatePassword">
-        <group>User</group>
-        <module>Member</module>
-        <action>updatePassword</action>
-    </url>
-
-    <url name="uploadImg">
-        <group>User</group>
-        <module>Member</module>
-        <action>uploadImg</action>
-    </url>
-
-    <url name="addAddress">
-        <group>User</group>
-        <module>Address</module>
-        <action>add</action>
-    </url>
-
-    <url name="getAddressList">
-        <group>User</group>
-        <module>Address</module>
-        <action>getList</action>
-    </url>
-
-    <url name="getAddress">
-        <group>User</group>
-        <module>Address</module>
-        <action>get</action>
-    </url>
-
-    <url name="deleteAddress">
-        <group>User</group>
-        <module>Address</module>
-        <action>delete</action>
-    </url>
-
-    <url name="productInfo">
-        <group>product</group>
-        <module>product</module>
-        <action>info</action>
-    </url>
 </interface>
