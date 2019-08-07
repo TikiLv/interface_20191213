@@ -31,6 +31,7 @@ class ReadConfig:
         return value
 
     def get_headers(self, name):
+        self.cf.read(configPath)
         value = self.cf.get("HEADERS", name)
         return value
 
@@ -39,10 +40,8 @@ class ReadConfig:
         with open(configPath, 'w+') as f:
             self.cf.write(f)
 
-
     def get_url(self, name):
         value = self.cf.get("URL", name)
-        print(value)
         return value
 
     def get_db(self, name):
