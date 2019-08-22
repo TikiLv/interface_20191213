@@ -55,4 +55,10 @@
         <action>createStudent</action>
     </url>
 
+    <url name="testDeleteStudent">
+        <group>api</group>
+        <module>school</module>
+        <action>deleteStudent</action>
+    </url>
+
 </interface>
