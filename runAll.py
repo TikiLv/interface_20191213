@@ -1,3 +1,4 @@
+#! /usr/bin/python
 import os
 import unittest
 from common1.Log import MyLog as Log
