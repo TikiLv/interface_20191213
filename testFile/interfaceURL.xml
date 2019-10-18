@@ -48,11 +48,16 @@
         <action>delete</action>
     </url>
 
-
     <url name="testAddStudent">
         <group>api</group>
         <module>school</module>
         <action>createStudent</action>
+    </url>
+
+    <url name="getStudentId">
+        <group>api</group>
+        <module>school</module>
+        <action>getList</action>
     </url>
 
     <url name="testDeleteStudent">
@@ -60,5 +65,6 @@
         <module>school</module>
         <action>deleteStudent</action>
     </url>
+
 
 </interface>
