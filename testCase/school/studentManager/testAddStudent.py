@@ -1,6 +1,4 @@
 import unittest
-
-import datetime as datetime
 import paramunittest
 import readConfig as readConfig
 from common1 import Log
@@ -35,6 +33,7 @@ class AddStudent(unittest.TestCase):
         self.name = str(name)
         self.schoolCode = str(schoolCode)
         self.schoolNumber = str(schoolNumber)
+        #获取当前时间
         self.startDate = time.strptime(startDate,'%Y')
         print(self.startDate)
         self.gradeId = str(gradeId)
@@ -58,7 +57,7 @@ class AddStudent(unittest.TestCase):
         """
         self.log = Log.MyLog.get_log()
         self.logger = self.log.get_logger()
-        self.cookie = businessCommon.login()
+        self.cookie = localReadConfig.get_headers('cookie')
 
     def testAddStudent(self):
         """
@@ -79,6 +78,18 @@ class AddStudent(unittest.TestCase):
 
         #test interface
         self.return_json = configHttp.post()
+
+        #判断是否登录超时,超时重新登录
+        if self.return_json.json()['code'] == 4:
+            businessCommon.login()
+            # 重新设置cookie
+            self.newcookie = localReadConfig.get_headers('cookie')
+            newcookie = str(self.newcookie)
+            header = {"Cookie": newcookie}
+            configHttp.set_headers(header)
+            # 重新请求
+            self.return_json = configHttp.post()
+
 
         self.checkResult()
 
@@ -111,4 +122,4 @@ class AddStudent(unittest.TestCase):
             self.log.build_case_line(self.case_name, self.code, 'the code doesn\'t exist')
 
 if __name__ == '__main__':
-    AddStudent(unittest.TestCase)
+    unittest.main()
