@@ -1,7 +1,7 @@
 #user/testLogin
-groupmanager/testAddGroupManager
-groupmanager/testDeleteGroupManager
-groupmanager/testEditGroupManager
-userManager/testAddUserManager
-userManager/testEditUserManager
-userManager/testDeleteUserManager
+school/groupmanager/testAddGroupManager
+school/groupmanager/testDeleteGroupManager
+school/groupmanager/testEditGroupManager
+school/userManager/testAddUserManager
+school/userManager/testEditUserManager
+school/userManager/testDeleteUserManager
