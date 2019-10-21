@@ -1,7 +1,8 @@
-#user/testLogin
-school/groupmanager/testAddGroupManager
-school/groupmanager/testDeleteGroupManager
-school/groupmanager/testEditGroupManager
-school/userManager/testAddUserManager
-school/userManager/testEditUserManager
-school/userManager/testDeleteUserManager
+#school/user/testLogin
+#school/groupmanager/testAddGroupManager
+#school/groupmanager/testDeleteGroupManager
+#school/groupmanager/testEditGroupManager
+#school/userManager/testAddUserManager
+#school/userManager/testEditUserManager
+#school/userManager/testDeleteUserManager
+school/testGetList
