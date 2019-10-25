@@ -120,7 +120,7 @@ def write_xls(xls_name, sheet_name, value, col_name):
     :return:
     """
     xlsPath = os.path.join(proDir, "testFile", 'case', xls_name)
-    print(xlsPath)
+    # print(xlsPath)
 
     if type(value) == list:
         # 用wlrd提供的方法读取一个excel文件,formatting_info=True：保留Excel的原格式
@@ -138,11 +138,9 @@ def write_xls(xls_name, sheet_name, value, col_name):
         for i in range(len(new_colname)):
             if new_colname[i] == col_name:
                 # 将value中的列表值写入excel
-                # print(len(value))
                 for j in range(len(value)):
                     j += 1
                     table.write(j, i, value[j - 1])
-                    print(value[j-1])
             else:
                 L += 1
             #判断value值遍历次数是否和总列数一样
