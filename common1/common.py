@@ -109,27 +109,50 @@ def set_style(name,height,bold=False):
 
     return style
 
-# ****************************** write testCase excel ********************************
-# def write_xls(xls_name, sheet_name, row, column):
-#     """
-#
-#     :param xls_name:
-#     :param sheet_name:
-#     :param row:
-#     :param column:
-#     :return:
-#     """
-#     #create workbook
-#     f = xlwt.Workbook()
-#     xlsPath = os.path.join(proDir, "testFile", "case",xls_name)
-#     old_file = xlrd.open_workbook(xlsPath)
-#     new_file = copy(old_file)
-#     file = xlrd.open_workbook(new_file)
-#     sheet = file.sheet_by_name(sheet_name)
-#     nrows = sheet.nrows
-#     for i in range(nrows):
-#         if nrows == 'id':
-#             xlwt.Workbook()
+#****************************** write testCase excel ********************************
+def write_xls(xls_name, sheet_name, value, col_name):
+    """
+
+    :param xls_name:
+    :param sheet_name:
+    :param num:
+    :param col_name:
+    :return:
+    """
+    xlsPath = os.path.join(proDir, "testFile", 'case', xls_name)
+    print(xlsPath)
+
+    if type(value) == list:
+        # 用wlrd提供的方法读取一个excel文件,formatting_info=True：保留Excel的原格式
+        old_file = xlrd.open_workbook(xlsPath)
+        # 用xlutils提供的copy方法将xlrd的对象转化为xlwt的对象
+        new_file = copy(old_file)
+        # 用xlwt对象的方法获得要操作的sheet_name
+        table = new_file.get_sheet(sheet_name)
+        # 获取列名为col_name的列数
+        col = get_xls(xls_name, sheet_name)
+        # print(col)
+        new_colname = col[0]
+        L = 0
+        #判断列名是否与输入值一样，返回列数
+        for i in range(len(new_colname)):
+            if new_colname[i] == col_name:
+                # 将value中的列表值写入excel
+                # print(len(value))
+                for j in range(len(value)):
+                    j += 1
+                    table.write(j, i, value[j - 1])
+                    print(value[j-1])
+            else:
+                L += 1
+            #判断value值遍历次数是否和总列数一样
+            if L == len(new_colname):
+                print('col_name is no exist')
+        new_file.save(xlsPath)
+
+    else:
+        print("value type error")
+
 
 
 # ****************************** read SQL xml ********************************
