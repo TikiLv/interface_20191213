@@ -66,5 +66,22 @@
         <action>deleteStudent</action>
     </url>
 
+    <url name="editStudent">
+        <group>api</group>
+        <module>school</module>
+        <action>createStudent</action>
+    </url>
+
+    <url name="getGrade">
+        <group>api</group>
+        <module>school</module>
+        <action>getGrade</action>
+    </url>
+
+    <url name="getClass">
+        <group>api</group>
+        <module>school</module>
+        <action>getClass</action>
+    </url>
 
 </interface>
