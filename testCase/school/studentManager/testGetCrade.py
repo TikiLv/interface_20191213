@@ -84,7 +84,7 @@ class getGrade(unittest.TestCase):
             if len(self.allGrade) != 0:
                 for i in range(len(self.allGrade)):
                     self.gradeId.append(self.allGrade[i]['id'])
-                    print(self.gradeId)
+                    # print(self.gradeId)
                 common.write_xls('saveData.xls', 'grade',self.gradeId, 'gradeId')
             else:
                 self.log.build_case_line(self.case_name, self.code, 'the Grade is null')
